@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AnimationController : MonoBehaviour
 {
-    private int animationVariable;
+    private int animationVariable = 0;
     private Animator animator;
 
     private void Awake()
@@ -14,6 +14,14 @@ public class AnimationController : MonoBehaviour
 
     private void OnMouseDown()
     {
-        
+        if(animationVariable < 2)
+        {
+            animationVariable++;
+        }
+        else
+        {
+            animationVariable = 0;
+        }
+        animator.SetInteger("State", animationVariable);
     }
 }
